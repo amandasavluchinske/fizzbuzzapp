@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,86 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FizzBuzz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbJ-fT-aTR">
+                                <rect key="frame" x="33" y="170" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.32065603503423745" blue="0.41285626665990094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="62"/>
+                                <color key="tintColor" red="1" green="0.99473829982031858" blue="0.99519382527893807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iu-0e-r7m">
+                                <rect key="frame" x="191" y="170" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.32065603500000001" blue="0.41285626669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" red="1" green="0.99473829979999995" blue="0.9951938253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="FIZZ!"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b31-1I-BIb">
+                                <rect key="frame" x="33" y="328" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.32065603500000001" blue="0.41285626669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" red="1" green="0.99473829979999995" blue="0.9951938253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="BUZZ!"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1z-vu-eGI">
+                                <rect key="frame" x="191" y="328" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.32065603500000001" blue="0.41285626669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" red="1" green="0.99473829979999995" blue="0.9951938253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="FIZZBUZZ!"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET'S PLAY FIZZBUZZ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72K-Fb-bZM">
+                                <rect key="frame" x="67" y="51" width="241" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.94990623320742584" blue="0.97464984115699826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjj-CD-7TS">
+                                <rect key="frame" x="35" y="528" width="304" height="96"/>
+                                <string key="text">If a number is divisible by 3, press fizz, if it's divisible by 5, press buzz. If it's divisible by both 3 and 5, press FIZZBUZZ!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.98996549371653408" blue="0.93795764187307862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050338038810402323" green="0.08500244406976272" blue="0.2448388924870466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="72K-Fb-bZM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="3DE-tj-ydN"/>
+                            <constraint firstItem="72K-Fb-bZM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="7z5-9c-wwu"/>
+                            <constraint firstItem="b31-1I-BIb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="8Ub-a7-gob"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b31-1I-BIb" secondAttribute="trailing" constant="192" id="B3I-ib-Y9W"/>
+                            <constraint firstItem="yjj-CD-7TS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="508" id="JWg-hw-bof"/>
+                            <constraint firstItem="R1z-vu-eGI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="308" id="LSI-ki-XbW"/>
+                            <constraint firstItem="3iu-0e-r7m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="191" id="Mav-gz-474"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="72K-Fb-bZM" secondAttribute="bottom" constant="588" id="QdX-fX-LP8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b31-1I-BIb" secondAttribute="bottom" constant="189" id="RCF-RW-kLG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="72K-Fb-bZM" secondAttribute="trailing" constant="67" id="RkQ-ru-MFU"/>
+                            <constraint firstItem="3iu-0e-r7m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="UVb-zJ-Snc"/>
+                            <constraint firstItem="yjj-CD-7TS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="Yhe-P0-N5T"/>
+                            <constraint firstItem="R1z-vu-eGI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="191" id="Yy3-3v-cAQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dbJ-fT-aTR" secondAttribute="trailing" constant="192" id="Z9R-hD-Ffg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dbJ-fT-aTR" secondAttribute="bottom" constant="347" id="Zti-N5-voE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yjj-CD-7TS" secondAttribute="trailing" constant="36" id="aCd-h0-V2r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R1z-vu-eGI" secondAttribute="trailing" constant="34" id="bZr-s3-CbI"/>
+                            <constraint firstItem="dbJ-fT-aTR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="euR-Xy-lMG"/>
+                            <constraint firstItem="b31-1I-BIb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="308" id="hjV-5J-Ldr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3iu-0e-r7m" secondAttribute="bottom" constant="347" id="o2w-Pp-mni"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yjj-CD-7TS" secondAttribute="bottom" constant="71" id="v3P-oV-aPW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3iu-0e-r7m" secondAttribute="trailing" constant="34" id="vhh-2t-l7F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R1z-vu-eGI" secondAttribute="bottom" constant="189" id="yHp-xT-1br"/>
+                            <constraint firstItem="dbJ-fT-aTR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="yqg-Og-CxE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>
