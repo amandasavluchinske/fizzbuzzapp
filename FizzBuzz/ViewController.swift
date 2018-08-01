@@ -9,15 +9,85 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // BUTTONS OUTLETS
+    
+    @IBOutlet weak var numberButton: UIButton!
+    @IBOutlet weak var fizzButton: UIButton!
+    @IBOutlet weak var buzzButton: UIButton!
+    @IBOutlet weak var fizzBuzzButton: UIButton!
+    
+    func sendToScorePage() {
+        
+    }
+    
+    func setTitleAndTag(number: Int) {
+        numberButton.setTitle(String(number), for: .normal)
+        numberButton.tag = number
+    }
+    
+    // BUTTONS ACTIONS
+    
+    @IBAction func numberPress(_ sender: Any) {
+        var currentValue: Int = numberButton.tag
+        if currentValue == 0 {
+            currentValue += 1
+            setTitleAndTag(number: currentValue)
+        } else if currentValue % 3 != 0 && currentValue % 5 != 0 {
+            currentValue += 1
+            setTitleAndTag(number: currentValue)
+        } else {
+            print("aaa")
+        }
+    }
+    
+    @IBAction func fizzPress(_ sender: Any) {
+        var currentValue: Int = numberButton.tag
+        if currentValue == 0 {
+            print("aaa")
+        } else if currentValue % 3 != 0 {
+            print("aaa")
+        } else if currentValue % 3 == 0 && currentValue % 5 == 0 {
+            print("aaa")
+        } else {
+            currentValue += 1
+            setTitleAndTag(number: currentValue)
+        }
+    }
+    
+    @IBAction func buzzPress(_ sender: Any) {
+        var currentValue: Int = numberButton.tag
+        if currentValue == 0 {
+            print("aaa")
+        } else if currentValue % 5 != 0 {
+            print("aaa")
+        } else if currentValue % 3 == 0 && currentValue % 5 == 0 {
+            print("aaa")
+        } else {
+            currentValue += 1
+            setTitleAndTag(number: currentValue)
+        }
+    }
+    
+    @IBAction func fizzBuzzPress(_ sender: Any) {
+        var currentValue: Int = numberButton.tag
+        if currentValue == 0 {
+            print("aaa")
+        } else if currentValue % 3 == 0 && currentValue % 5 == 0 {
+            currentValue += 1
+            setTitleAndTag(number: currentValue)
+        } else {
+            print("aaa")
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
