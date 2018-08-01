@@ -9,7 +9,17 @@
 import UIKit
 
 class SubmitViewController: UIViewController {
-
+    
+    
+    // Outlets
+    @IBOutlet weak var inputName: UITextField!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    
+    // Actions
+    @IBAction func saveButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -25,6 +25,16 @@ class ViewController: UIViewController {
         numberButton.setTitle(String(number), for: .normal)
         numberButton.tag = number
     }
+    func resetScore() {
+        numberButton.tag = 0
+        numberButton.setTitle(String(0), for: .normal)
+    }
+    
+    // ACTIONS
+    
+    @IBAction func unwindFromCancelButton(unwindSegue: UIStoryboardSegue) {
+        resetScore()
+    }
     
     
     // BUTTONS ACTIONS

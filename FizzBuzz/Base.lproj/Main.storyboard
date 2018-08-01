@@ -187,6 +187,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.971826567710115" green="1" blue="0.96950849908780734" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Y1k-Nd-Dff" kind="unwind" unwindAction="unwindFromCancelButtonWithUnwindSegue:" id="iPi-x1-jCA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.023529411764705882" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -222,8 +225,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tG7-kS-AYG"/>
                     </view>
+                    <connections>
+                        <outlet property="inputName" destination="Sgr-6S-VXf" id="2UY-m4-mGt"/>
+                        <outlet property="pointsLabel" destination="RGS-c5-YYA" id="DCG-nI-Prx"/>
+                        <outlet property="scoreLabel" destination="Ibr-HF-dVY" id="LXW-m2-vUJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D39-nc-zUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Y1k-Nd-Dff" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2044" y="132.68365817091455"/>
         </scene>
