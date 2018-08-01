@@ -37,6 +37,9 @@ class ViewController: UIViewController {
     @IBAction func unwindFromCancelButton(unwindSegue: UIStoryboardSegue) {
         resetScore()
     }
+    @IBAction func unwindFromScoreList(sender: UIStoryboardSegue) {
+        resetScore()
+    }
     
     
     // BUTTONS ACTIONS

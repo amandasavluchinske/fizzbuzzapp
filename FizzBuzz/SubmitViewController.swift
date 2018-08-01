@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class SubmitViewController: UIViewController {
+    
+    var appDelegate: AppDelegate?
+    var context: NSManagedObjectContext?
+    var people: [NSManagedObject] = []
     
     // Data Var
     var score: Int?
@@ -17,10 +22,51 @@ class SubmitViewController: UIViewController {
     @IBOutlet weak var inputName: UITextField!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var imageDisplay: UIImageView!
+    
     
     // Actions
-    @IBAction func saveButton(_ sender: Any) {
+    
+    func save(name: String, score: Int, img: UIImage) {
+        let entity = NSEntityDescription.entity(forEntityName: "Person", in: context!)
+        
+        let person = NSManagedObject(entity: entity!, insertInto: context)
+        
+        person.setValue(name, forKey: "name")
+        person.setValue(score, forKey: "score")
+        person.setValue(img, forKey: "image")
+        
+        do {
+            try context?.save()
+            self.people.append(person)
+        } catch let error as NSError {
+            print("error")
+        }
     }
+    
+    @IBAction func saveButton(_ sender: Any) {
+        let name = inputName.text
+        let img = self.imageDisplay.image
+//        let imgData = UIImageJPEGRepresentation(img!, 1)
+        save(name: name!, score: score!, img: img!)
+    }
+    
+    @IBAction func submitImageButton(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            
+            imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    // Functions
+    
+    func saveScore() {
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,4 +95,14 @@ class SubmitViewController: UIViewController {
     }
     */
 
+}
+
+extension SubmitViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let selectedImage = pickedImage
+            self.imageDisplay.image = selectedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

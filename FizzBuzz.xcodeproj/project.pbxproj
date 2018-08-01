@@ -14,6 +14,8 @@
 		AF69E7572112263300354B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF69E7562112263300354B91 /* Assets.xcassets */; };
 		AF69E75A2112263300354B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69E7582112263300354B91 /* LaunchScreen.storyboard */; };
 		AF69E762211241AF00354B91 /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF69E761211241AF00354B91 /* SubmitViewController.swift */; };
+		AF69E76421124B8300354B91 /* ScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF69E76321124B8300354B91 /* ScoreTableViewController.swift */; };
+		AF69E766211255BC00354B91 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF69E765211255BC00354B91 /* PersonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AF69E7592112263300354B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF69E75B2112263300354B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF69E761211241AF00354B91 /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
+		AF69E76321124B8300354B91 /* ScoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewController.swift; sourceTree = "<group>"; };
+		AF69E765211255BC00354B91 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				AF69E74C2112263100354B91 /* AppDelegate.swift */,
 				AF69E74E2112263100354B91 /* ViewController.swift */,
 				AF69E7502112263100354B91 /* Main.storyboard */,
+				AF69E76321124B8300354B91 /* ScoreTableViewController.swift */,
+				AF69E765211255BC00354B91 /* PersonTableViewCell.swift */,
 				AF69E761211241AF00354B91 /* SubmitViewController.swift */,
 				AF69E7562112263300354B91 /* Assets.xcassets */,
 				AF69E7582112263300354B91 /* LaunchScreen.storyboard */,
@@ -141,9 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF69E766211255BC00354B91 /* PersonTableViewCell.swift in Sources */,
 				AF69E762211241AF00354B91 /* SubmitViewController.swift in Sources */,
 				AF69E7552112263100354B91 /* FizzBuzz.xcdatamodeld in Sources */,
 				AF69E74F2112263100354B91 /* ViewController.swift in Sources */,
+				AF69E76421124B8300354B91 /* ScoreTableViewController.swift in Sources */,
 				AF69E74D2112263100354B91 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
