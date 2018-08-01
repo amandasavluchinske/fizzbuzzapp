@@ -10,6 +10,8 @@ import UIKit
 
 class SubmitViewController: UIViewController {
     
+    // Data Var
+    var score: Int?
     
     // Outlets
     @IBOutlet weak var inputName: UITextField!
@@ -22,6 +24,11 @@ class SubmitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let stringScore = "\(score ?? 0)"
+        print(stringScore)
+        
+        scoreLabel.text = stringScore
 
         self.navigationItem.setHidesBackButton(true, animated:true);
     }

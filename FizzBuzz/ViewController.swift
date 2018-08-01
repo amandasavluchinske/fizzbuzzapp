@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var buzzButton: UIButton!
     @IBOutlet weak var fizzBuzzButton: UIButton!
     
+    // Functions
+    
     func sendToScorePage() {
         self.performSegue(withIdentifier: "fromGameToSaveScreen", sender: self)
     }
@@ -97,6 +99,12 @@ class ViewController: UIViewController {
             setTitleAndTag(number: currentValue)
         } else {
             sendToScorePage()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let SubmitVC = segue.destination as? SubmitViewController {
+            SubmitVC.score = self.numberButton.tag
         }
     }
     
