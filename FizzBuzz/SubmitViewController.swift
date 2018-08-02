@@ -23,12 +23,16 @@ class SubmitViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var imageDisplay: UIImageView!
+    @IBOutlet weak var saveButton: UIButton!
+    
     
     
     // Actions
     
-    func save(name: String, score: Int, img: UIImage) {
-        let entity = NSEntityDescription.entity(forEntityName: "Person", in: context!)
+    // Functions
+    
+    func save(name: String, score: Int, img: Data) {
+        let entity = NSEntityDescription.entity(forEntityName: "Person", in: self.context!)
         
         let person = NSManagedObject(entity: entity!, insertInto: context)
         
@@ -39,16 +43,26 @@ class SubmitViewController: UIViewController {
         do {
             try context?.save()
             self.people.append(person)
+            self.performSegue(withIdentifier: "saveToScores", sender: self)
         } catch let error as NSError {
             print("error")
         }
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        let name = inputName.text
-        let img = self.imageDisplay.image
-//        let imgData = UIImageJPEGRepresentation(img!, 1)
-        save(name: name!, score: score!, img: img!)
+        if inputName.text == nil || self.imageDisplay.image == nil {
+            let alert = UIAlertController(title: "Empty score", message: "You can't save an empty score.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            }))
+            
+            self.present(alert, animated: true)
+        } else {
+            let name = inputName.text
+            let img = self.imageDisplay.image
+            let imgData = UIImageJPEGRepresentation(img!, 1)
+            save(name: name!, score: score!, img: imgData!)
+        }
     }
     
     @IBAction func submitImageButton(_ sender: Any) {
@@ -62,14 +76,11 @@ class SubmitViewController: UIViewController {
         }
     }
     
-    // Functions
-    
-    func saveScore() {
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
+        self.context = self.appDelegate?.persistentContainer.viewContext
         
         let stringScore = "\(score ?? 0)"
         print(stringScore)

@@ -15,29 +15,35 @@ class ScoreTableViewController: UITableViewController {
     var context: NSManagedObjectContext?
     var people: [NSManagedObject] = []
     
-    
-    // Actions
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Person")
+    func fetchPeople() {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Person")
         
         do {
-            try self.people = (self.context?.fetch(fetchRequest))!
+            try self.people = (self.context!.fetch(request))
+            print(people)
             self.tableView.reloadData()
         } catch let error as NSError {
             print("Error retrieving people")
         }
     }
     
+    
+    // Actions
+    
+    
+//    @IBAction func unwindToGame(_ sender: Any) {
+//        self.performSegue(withIdentifier: "scoreToGame", sender: self)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         self.context = self.appDelegate?.persistentContainer.viewContext
         
-        print(people)
+        fetchPeople()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -54,12 +60,10 @@ class ScoreTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.people.count
     }
 
@@ -73,13 +77,13 @@ class ScoreTableViewController: UITableViewController {
                 
         }
         let person = self.people[indexPath.row]
-        let name = person.value(forKey: "nome") as? String
+        let name = person.value(forKey: "name") as? String
         let score = person.value(forKey: "score") as? Int
         let stringScore = "\(score ?? 0)"
-        let image = person.value(forKey: "image") as? UIImage
+        let image = person.value(forKey: "image") as? Data
         cell.namePerson.text = name
         cell.scorePerson.text = stringScore
-        cell.imagePerson.image = image
+        cell.imagePerson.image = UIImage(data: image!, scale: 1.0)
         return cell
         
     }
@@ -96,7 +100,17 @@ class ScoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let person = self.people[indexPath.row]
+            self.context?.delete(person)
+            self.appDelegate?.saveContext()
+            
+            let request = NSFetchRequest<NSManagedObject>(entityName: "Person")
+            do {
+                try self.people = (self.context?.fetch(request))!
+                tableView.reloadData()
+            } catch {
+                print("fetching failed")
+            }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
