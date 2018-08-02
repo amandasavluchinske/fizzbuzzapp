@@ -50,7 +50,7 @@ class SubmitViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        if inputName.text == nil || self.imageDisplay.image == nil {
+        if inputName.text == nil || self.imageDisplay.image == nil || inputName.text == "" {
             let alert = UIAlertController(title: "Empty score", message: "You can't save an empty score.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in

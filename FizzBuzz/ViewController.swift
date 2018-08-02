@@ -46,12 +46,13 @@ class ViewController: UIViewController {
     
     @IBAction func numberPress(_ sender: Any) {
         var currentValue: Int = numberButton.tag
+        let nextValue: Int = numberButton.tag + 1
         if currentValue == 100 {
             sendToScorePage()
         } else if currentValue == 0 {
             currentValue += 1
             setTitleAndTag(number: currentValue)
-        } else if currentValue % 3 != 0 && currentValue % 5 != 0 {
+        } else if nextValue % 3 != 0 && nextValue % 5 != 0 {
             currentValue += 1
             setTitleAndTag(number: currentValue)
         } else {
@@ -61,13 +62,14 @@ class ViewController: UIViewController {
     
     @IBAction func fizzPress(_ sender: Any) {
         var currentValue: Int = numberButton.tag
+        let nextValue: Int = numberButton.tag + 1
         if currentValue == 100 {
             sendToScorePage()
         } else if currentValue == 0 {
             sendToScorePage()
-        } else if currentValue % 3 != 0 {
+        } else if nextValue % 3 != 0 {
             sendToScorePage()
-        } else if currentValue % 3 == 0 && currentValue % 5 == 0 {
+        } else if nextValue % 3 == 0 && nextValue % 5 == 0 {
             sendToScorePage()
         } else {
             currentValue += 1
@@ -77,13 +79,14 @@ class ViewController: UIViewController {
     
     @IBAction func buzzPress(_ sender: Any) {
         var currentValue: Int = numberButton.tag
+        let nextValue: Int = numberButton.tag + 1
         if currentValue == 100 {
             sendToScorePage()
         } else if currentValue == 0 {
             sendToScorePage()
-        } else if currentValue % 5 != 0 {
+        } else if nextValue % 5 != 0 {
             sendToScorePage()
-        } else if currentValue % 3 == 0 && currentValue % 5 == 0 {
+        } else if nextValue % 3 == 0 && nextValue % 5 == 0 {
             sendToScorePage()
         } else {
             currentValue += 1
@@ -93,11 +96,12 @@ class ViewController: UIViewController {
     
     @IBAction func fizzBuzzPress(_ sender: Any) {
         var currentValue: Int = numberButton.tag
+        let nextValue: Int = numberButton.tag + 1
         if currentValue == 100 {
             sendToScorePage()
         } else if currentValue == 0 {
             sendToScorePage()
-        } else if currentValue % 3 == 0 && currentValue % 5 == 0 {
+        } else if nextValue % 3 == 0 && nextValue % 5 == 0 {
             currentValue += 1
             setTitleAndTag(number: currentValue)
         } else {

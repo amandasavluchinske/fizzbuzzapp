@@ -16,7 +16,9 @@ class ScoreTableViewController: UITableViewController {
     var people: [NSManagedObject] = []
     
     func fetchPeople() {
-        let request = NSFetchRequest<NSManagedObject>(entityName: "Person")
+        let request = NSFetchRequest<Person>(entityName: "Person")
+        let sort = NSSortDescriptor(key: #keyPath(Person.score), ascending: false)
+        request.sortDescriptors = [sort]
         
         do {
             try self.people = (self.context!.fetch(request))
@@ -104,9 +106,8 @@ class ScoreTableViewController: UITableViewController {
             self.context?.delete(person)
             self.appDelegate?.saveContext()
             
-            let request = NSFetchRequest<NSManagedObject>(entityName: "Person")
             do {
-                try self.people = (self.context?.fetch(request))!
+                try fetchPeople()
                 tableView.reloadData()
             } catch {
                 print("fetching failed")
